@@ -1,0 +1,14 @@
+version: '3.0'
+services:
+  node:
+    image: "node:latest"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./Portfolio:/home/node/app
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    command: "npm run start:prod"
