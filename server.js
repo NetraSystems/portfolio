@@ -10,9 +10,9 @@ require('dotenv').config();
 const app = express();
 
 // MongoDB connection
-const mongoUser = process.env.MONGO_INITDB_ROOT_USERNAME;
-const mongoPass = process.env.MONGO_INITDB_ROOT_PASSWORD;
-const mongoUrl = `mongodb://${mongoUser}:${mongoPass}@localhost:27017/portfolio?authSource=admin`;
+const mongoUser = encodeURIComponent(process.env.MONGO_INITDB_ROOT_USERNAME);
+const mongoPass = encodeURIComponent(process.env.MONGO_INITDB_ROOT_PASSWORD);
+const mongoUrl = `mongodb://${mongoUser}:${mongoPass}@mongo:27017/portfolio?authSource=admin`;
 
 mongoose.connect(mongoUrl);
 
