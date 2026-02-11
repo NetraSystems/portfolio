@@ -1,3 +1,5 @@
+# Production docker-compose with GHCR image
+# Usage: docker-compose -f docker-compose.prod.yml up -d
 services:
   mongo:
     image: mongo:4.4
@@ -13,7 +15,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
 
   app:
-    build: .
+    image: ghcr.io/rikoxcode/portfolio:latest
     restart: always
     ports:
       - "3000:3000"
