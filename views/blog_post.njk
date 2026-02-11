@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ post.title }}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="terminal-header">
+      <span class="command-prompt">$</span><span class="prompt-path">~/portfolio/blog</span> cat {{ post.title | replace(' ', '-') | lower }}.md
+    </div>
+    
+    <div class="admin-header">
+      <h1>{{ post.title }}</h1>
+      {% if isAdmin %}
+        <form action="/blog/{{ post._id }}/delete" method="POST" style="margin: 0;" onsubmit="return confirm('Delete this post and all comments?');">
+          <button type="submit" class="logout-btn">delete</button>
+        </form>
+      {% endif %}
+    </div>
+    
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="https://github.com/RikoxCode" target="_blank">github</a>
+    </nav>
+    
+    <article>
+      <p style="white-space: pre-wrap; line-height: 1.8;">{{ post.content }}</p>
+      <br>
+      <small>Published {{ post.createdAt.toLocaleDateString('en-US') }} at {{ post.createdAt.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) }}</small>
+    </article>
+
+    <section class="portfolio-section comment-form">
+      <h2>comments ({{ comments.length }})</h2>
+      
+      <form action="/blog/{{ post._id }}/comments" method="POST">
+        <textarea name="text" placeholder="Write a comment (anonymous)..." required rows="4"></textarea>
+        <button type="submit">post comment</button>
+      </form>
+
+      {% if comments.length > 0 %}
+        <div style="margin-top: 25px;">
+          {% for comment in comments %}
+            <div class="comment">
+              <p>{{ comment.text }}</p>
+              <small>{{ comment.createdAt.toLocaleDateString('en-US') }} at {{ comment.createdAt.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) }}</small>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p style="margin-top: 20px; color: #7d8590;">No comments yet. Be the first!</p>
+      {% endif %}
+    </section>
+  </div>
+</body>
+</html>

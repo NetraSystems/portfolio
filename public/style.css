@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  line-height: 1.6;
+  color: #c9d1d9;
+  background: #010409;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 40px 20px;
+  border: none;
+}
+
+.terminal-header {
+  font-family: 'Fira Code', monospace;
+  color: #7d8590;
+  font-size: 12px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.command-prompt {
+  color: #3fb950;
+  margin-right: 8px;
+}
+
+.prompt-path {
+  color: #58a6ff;
+}
+
+nav {
+  background: transparent;
+  padding: 0;
+  margin: 20px 0 40px 0;
+  border: none;
+  font-size: 14px;
+}
+
+nav::before {
+  content: '$ ';
+  color: #3fb950;
+  margin-right: 5px;
+}
+
+nav a {
+  color: #58a6ff;
+  text-decoration: none;
+  margin: 0 15px 0 0;
+  font-weight: normal;
+  transition: color 0.2s;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+nav a:hover {
+  background: #161b22;
+  color: #79c0ff;
+}
+
+h1, h2, h3 {
+  color: #f0f6fc;
+  margin-bottom: 15px;
+  font-weight: 500;
+  border: none;
+  padding-left: 0;
+}
+
+h1 {
+  font-size: 2.2em;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+h1::before {
+  content: '// ';
+  color: #7d8590;
+  margin-right: 10px;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #58a6ff;
+}
+
+h2::before {
+  content: '## ';
+  color: #3fb950;
+  margin-right: 8px;
+}
+
+h3 {
+  font-size: 1.1em;
+  color: #79c0ff;
+  margin-bottom: 8px;
+}
+
+form {
+  background: transparent;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  border: none;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #30363d;
+  border-radius: 3px;
+  font-size: 14px;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  background: #161b22;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  background: transparent;
+  color: #3fb950;
+  padding: 8px 16px;
+  border: 1px solid #238636;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #238636;
+  color: #ffffff;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #f85149;
+  border-color: #da3633;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background: #da3633;
+  color: #ffffff;
+}
+
+.login-btn {
+  background: transparent;
+  color: #58a6ff;
+  border-color: #1f6feb;
+}
+
+.login-btn:hover {
+  background: #1f6feb;
+  color: #ffffff;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  background: transparent;
+  margin: 0 0 12px 0;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #21262d;
+}
+
+.post-list li:hover {
+  background: #161b22;
+  padding-left: 8px;
+  transition: all 0.2s;
+}
+
+.post-list a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.post-list a:hover {
+  color: #79c0ff;
+  text-decoration: underline;
+}
+
+article {
+  background: transparent;
+  padding: 20px 0;
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #21262d;
+  border-bottom: 1px solid #21262d;
+}
+
+.comment {
+  background: transparent;
+  border: none;
+  border-left: 2px solid #30363d;
+  padding: 10px 0 10px 15px;
+  margin: 15px 0;
+}
+
+.comment:hover {
+  border-left-color: #58a6ff;
+}
+
+.comment-form {
+  margin-top: 30px;
+}
+
+small {
+  color: #7d8590;
+  font-size: 0.85em;
+}
+
+.portfolio-section {
+  margin: 30px 0;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #21262d;
+}
+
+.admin-only {
+  background: transparent;
+  border: 1px solid #238636;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #21262d;
+}
+
+.success-msg {
+  background: transparent;
+  border: 1px solid #238636;
+  color: #3fb950;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.error-msg {
+  background: transparent;
+  border: 1px solid #f85149;
+  color: #f85149;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.skill-tag {
+  background: transparent;
+  color: #c9d1d9;
+  padding: 4px 10px;
+  border: 1px solid #30363d;
+  font-size: 12px;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.projects {
+  margin-top: 20px;
+}
+
+.project-card {
+  background: transparent;
+  padding: 20px 0;
+  margin: 0 0 20px 0;
+  border: none;
+  border-top: 1px solid #21262d;
+  transition: all 0.2s;
+}
+
+.project-card:hover {
+  padding-left: 10px;
+  border-left: 2px solid #58a6ff;
+}
+
+.project-card h3 {
+  margin-bottom: 8px;
+  color: #f0f6fc;
+  border: none;
+  padding-left: 0;
+}
+
+.project-card h3::before {
+  content: '> ';
+  color: #3fb950;
+  margin-right: 5px;
+}
+
+.project-card p {
+  color: #7d8590;
+  font-size: 0.9em;
+  margin: 8px 0;
+}
+
+.project-link {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 0.85em;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: #7d8590;
+}
+
+.repo-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

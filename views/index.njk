@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RikoxCode - Developer Portfolio</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="terminal-header">
+      <span class="command-prompt">$</span><span class="prompt-path">~/portfolio</span> cat README.md
+    </div>
+    
+    <div class="admin-header">
+      <h1>RikoxCode</h1>
+      {% if isAdmin %}
+        <form action="/admin/logout" method="GET" style="margin: 0;">
+          <button type="submit" class="logout-btn">logout</button>
+        </form>
+      {% endif %}
+    </div>
+
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="https://github.com/RikoxCode" target="_blank">github</a>
+      {% if not isAdmin %}
+        <a href="/admin/login">admin</a>
+      {% endif %}
+    </nav>
+    
+    <section class="portfolio-section">
+      <h2>about</h2>
+      <p>👋 Passionate about TypeScript & Laravel. Building cool stuff and sharing the journey.</p>
+      <p style="margin-top: 15px; color: #7d8590; font-size: 0.9em;">
+        → GitHub: <a href="https://github.com/RikoxCode" style="color: #58a6ff; text-decoration: none;">@RikoxCode</a><br>
+        → Website: <a href="http://netshlife.dev" style="color: #58a6ff; text-decoration: none;">netshlife.dev</a><br>
+        → Location: Switzerland • 20 followers • 17 following
+      </p>
+    </section>
+
+    <section class="portfolio-section">
+      <h2>stack</h2>
+      <div class="skills">
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+      <h2>projects</h2>
+      <p style="color: #7d8590; font-size: 0.85em; margin-bottom: 20px;">Fetching latest from GitHub API...</p>
+      <div class="projects">
+        {% if repos and repos.length > 0 %}
+          {% for repo in repos %}
+            <div class="project-card">
+              <h3>{{ repo.name }}{% if repo.stars > 0 %} ⭐ {{ repo.stars }}{% endif %}</h3>
+              <p>{{ repo.description }}</p>
+              <div class="repo-meta">
+                {% if repo.language %}
+                  <span>📝 {{ repo.language }}</span>
+                {% endif %}
+                <span>📅 Updated recently</span>
+              </div>
+              <a href="{{ repo.url }}" target="_blank" class="project-link">→ View on GitHub</a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="color: #7d8590;">No repositories found or API rate limit reached. Check back later.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #21262d; color: #7d8590; font-size: 0.85em; text-align: center;">
+      <p>$ echo "Built with Node.js, Express, MongoDB & GitHub API" | cowsay</p>
+      <p style="margin-top: 10px;">© 2026 RikoxCode • <a href="https://github.com/RikoxCode" style="color: #58a6ff; text-decoration: none;">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

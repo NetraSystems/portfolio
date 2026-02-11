@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="terminal-header">
+      <span class="command-prompt">$</span><span class="prompt-path">~/portfolio/admin</span> sudo login
+    </div>
+    
+    <h1>Admin Access</h1>
+    
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+    </nav>
+    
+    <section class="portfolio-section">
+      {% if error %}
+        <div class="error-msg">
+          ❌ Authentication failed. Please try again.
+        </div>
+      {% endif %}
+      
+      <form action="/admin/login" method="POST">
+        <input type="password" name="password" placeholder="Admin password" required autofocus>
+        <button type="submit" class="login-btn">authenticate</button>
+      </form>
+      
+      <p style="color: #7d8590; margin-top: 20px; font-size: 0.9em;">
+        💡 Admin access required to create and manage blog posts.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
